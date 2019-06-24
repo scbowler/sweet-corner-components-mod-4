@@ -1,15 +1,14 @@
-import React from 'react';
-import ApiTest from './api_test';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/app.scss';
-import logo from '../assets/images/logo.svg';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import ProductList from './product-list';
 
 const App = () => (
     <div>
-        <div className="app center">
-            <img src={logo} className="logo rotate"/>
-            <h1>Welcome to React</h1>
+        <div className="container">
+            <Route path="/" exact component={ProductList} />
         </div>
-        <ApiTest/>
     </div>
 );
 
