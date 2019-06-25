@@ -1,0 +1,31 @@
+.product-details {
+    .total {
+        font-weight: bold;
+    }
+
+    .quantity {
+        user-select: none;
+
+        .amount {
+            background-color: #fdfdfd;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 0 12px;
+            padding: 4px 8px;
+            text-align: center;
+            width: 38px;
+        }
+
+        .fas {
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 6px;
+            transition-duration: 200ms;
+            
+            &:hover {
+                background-color: #fff;
+                color: #8f8f8f;
+            }
+        }
+    }
+}
