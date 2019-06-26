@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getProductList } from '../actions';
+import { getProductList } from 'actions';
+import { money } from 'helpers';
 
 class ProductList extends Component {
     componentDidMount(){
@@ -12,9 +13,9 @@ class ProductList extends Component {
         return (
             <Link to={`/product/${id}`} className="list-group-item list-group-item-action flex-column align-items-start">
                 <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">{name}</h5>
+                    <h5 className="mb-2">{name}</h5>
+                    <p>{money(cost)}</p>
                 </div>
-                <p className="mb-1">{cost}</p>
             </Link>
         );
     }
@@ -23,7 +24,7 @@ class ProductList extends Component {
         const { props: { products }, ProductItem } = this;
 
         return (
-            <div>
+            <div className="my-5">
                 <h1 className="text-center">Products</h1>
 
                 <div className="list-group">
