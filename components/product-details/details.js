@@ -9,6 +9,20 @@ class ProductDetails extends Component {
         quantity: 1
     }
 
+    componentDidMount() {
+        const { getProductDetails, match: { params } } = this.props;
+
+        getProductDetails(params.product_id);
+    }
+
+    addToCart = () => {
+        const { match: { params } } = this.props;
+        const { quantity } = this.state;
+
+        console.log('Product ID:', params.product_id);
+        console.log('Quantity:', quantity);
+    }
+
     decrease = () => {
         const { quantity } = this.state;
 
@@ -23,12 +37,6 @@ class ProductDetails extends Component {
         this.setState({
             quantity: this.state.quantity + 1
         });
-    }
-
-    componentDidMount(){
-        const { getProductDetails, match: { params } } = this.props;
-
-        getProductDetails(params.product_id);
     }
     
     render(){
@@ -48,7 +56,7 @@ class ProductDetails extends Component {
                         <i className="fas fa-plus" onClick={this.increase} />
                     </div>
                     <div className="total mb-4">{money(details.cost * quantity)} TOTAL</div>
-                    <a className="btn btn-primary btn-lg" href="#" role="button">Add to cart</a>
+                    <button className="btn btn-primary btn-lg" onClick={this.addToCart}>Add to cart</button>
                 </div>
             </div>
         );
